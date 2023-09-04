@@ -1,8 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import routes from "./db/routes";
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline bg-red-500">Hello world!</h1>
-    </>
+    <div className="font-body">
+      <BrowserRouter>
+        <Routes>
+          {routes.map((route, index) => {
+            return (
+              <Route key={index} path={route.path} element={route.element} />
+            );
+          })}
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
